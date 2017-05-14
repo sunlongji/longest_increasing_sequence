@@ -1,0 +1,14 @@
+public Solution{
+  public int LengthofLSS(int[] nums){
+    int[] dp=new int[nums.length];
+    int len=0;
+    for(int num:nums){
+      int i=Arrays.binarySearch(dp,0,len,num);
+      //i is the index of the element, or -(insertion point)-1. The insertion point is the index of the first element greater than num;
+      i=-(i+1);
+      dp[i]=num;
+      if(i==len) len++;
+    }
+    return len;
+  }
+}
